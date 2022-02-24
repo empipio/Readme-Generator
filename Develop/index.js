@@ -93,8 +93,7 @@ ${contributors}
 ${tests}
 
 ## Questions
-github.com/${username}
-you can reach me with additional questions at ${email}
+you can reach me with additional questions at ${email} or github.com/${username}
       `,
     (err) => (err ? console.log(err) : console.log("Success!"))
   );
