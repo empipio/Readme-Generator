@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const getBadge = require("./utils/generateMarkdown");
 //const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
@@ -24,6 +25,23 @@ const questions = [
     type: "input",
     name: "usage",
     message: "Enter usage information here:",
+  },
+  {
+    type: "checkbox",
+    name: "license",
+    message: "Select which license is used for your project:",
+    choices: [
+      "MIT",
+      "GNU GPU 2.0",
+      "GNU GPU 3.0",
+      "GNU LGPL 3.0",
+      "Apache",
+      "BSD",
+      "ISC",
+      "Artistic License (Perl)",
+      "Eclipse",
+      "License not known",
+    ],
   },
   {
     type: "input",
@@ -55,6 +73,7 @@ function writeToFile({
   description,
   installation,
   usage,
+  license,
   contributors,
   tests,
   username,
@@ -63,7 +82,9 @@ function writeToFile({
   fs.writeFile(
     "generatedReadMe.md",
     `
-# Project: ${projectTitle}
+# ${projectTitle}
+
+${getBadge.renderLicenseBadge()}
 
 ## Description
 ${description}
@@ -84,7 +105,7 @@ ${installation}
 ${usage}
 
 ## License
-???
+This project is covered under the following license: ${license}
 
 ## Contributing
 ${contributors}
