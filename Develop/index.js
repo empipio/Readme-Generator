@@ -84,7 +84,7 @@ function writeToFile({
     `
 # ${projectTitle}
 
-${getBadge.renderLicenseBadge()}
+${getBadge.renderLicenseBadge(license)}
 
 ## Description
 ${description}
@@ -114,7 +114,7 @@ ${contributors}
 ${tests}
 
 ## Questions
-you can reach me with additional questions at ${email} or github.com/${username}
+you can reach me with additional questions at ${email} or reach out on [github](https://github.com/${username})
       `,
     (err) => (err ? console.log(err) : console.log("Success!"))
   );

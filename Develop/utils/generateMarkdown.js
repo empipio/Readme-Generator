@@ -52,13 +52,25 @@ function renderLicenseBadge(license, badge) {
       badge: "",
     },
   ];
-  licenseBadges.forEach((whichLicense) => {
-    if (license === whichLicense.name) {
-      whichLicense.badge = badge;
+  for (const licenseEl of licenseBadges) {
+    if (licenseEl.name == license) {
+      badge = licenseEl.badge;
       return badge;
-      console.log(badge);
     }
-  });
+    if (!license) {
+      return "";
+    }
+  }
+  // licenseBadges.forEach((whichLicense) => {
+  //   if (whichLicense.name == license) {
+  //     whichLicense.badge = badge;
+  //     console.log(badge);
+  //     return badge;
+  //   }
+  //   if (!license) {
+  //     return "";
+  //   }
+  // });
 }
 
 // TODO: Create a function that returns the license link
