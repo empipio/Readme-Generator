@@ -1,10 +1,9 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
 const getBadge = require("./utils/generateMarkdown");
-//const generateMarkdown = require("./utils/generateMarkdown");
 
-// TODO: Create an array of questions for user input
+// array of questions for user input
 const questions = [
   {
     type: "input",
@@ -65,9 +64,7 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
-//writes file but input all undefined
-//LOOK AT MINI PROJECT SOLVED FROM SATURDAY
+// function to write README file
 function writeToFile({
   projectTitle,
   description,
@@ -120,61 +117,10 @@ you can reach me with additional questions at ${email} or reach out on [github](
   );
 }
 
-// // TODO: Create a function to initialize app
+//function to initialize app
 function init() {
   inquirer.prompt(questions).then(writeToFile);
 }
 
 // Function call to initialize app
 init();
-
-// const generateFile = ({
-//   projectTitle,
-//   description,
-//   installation,
-//   usage,
-//   contributors,
-//   tests,
-//   username,
-//   email,
-// }) =>
-//   `
-// # Project: ${projectTitle}
-
-// ## Description
-// ${description}
-
-// ## Table of Contents
-// - [Description](#description)
-// - [Installation](#installation)
-// - [Usage](#usage)
-// - [License](#license)
-// - [Contributing](#contributing)
-// - [Tests](#tests)
-// - [Questions](#questions)
-
-// ## Installation
-// ${installation}
-
-// ## Usage
-// ${usage}
-
-// ## License
-// ???
-
-// ## Contributing
-// ${contributors}
-
-// ## Tests
-// ${tests}
-
-// ## Questions
-// you can reach me with additional questions at ${email} or github.com/${username}
-// `;
-
-// inquirer.prompt(questions).then((answers) => {
-//   const readmePageContent = generateFile(answers);
-//   fs.writeFile("generatedReadMe.md", readmePageContent, (err) =>
-//     err ? console.log(err) : console.log("Successfully created readme!")
-//   );
-// });
